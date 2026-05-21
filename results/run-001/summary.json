@@ -1,0 +1,88 @@
+{
+  "csv": "data\\_alerts_snapshot.csv",
+  "n_rows_raw": 1253,
+  "n_rows_weekend_removed": 217,
+  "n_rows_clean": 1036,
+  "base_rate_clean": 0.2750965250965251,
+  "n_features": 51,
+  "threshold": 0.5,
+  "n_folds": 5,
+  "fold_results": [
+    {
+      "fold_id": 0,
+      "n_train": 414,
+      "n_test": 124,
+      "base_rate_test": 0.14516129032258066,
+      "n_predicted_positive": 30,
+      "win_rate_on_taken": 0.4666666666666667,
+      "profit_factor": 0.875,
+      "sharpe": -1.0428326807307107,
+      "dsr": 0.06425236480043459
+    },
+    {
+      "fold_id": 1,
+      "n_train": 538,
+      "n_test": 124,
+      "base_rate_test": 0.16129032258064516,
+      "n_predicted_positive": 33,
+      "win_rate_on_taken": 0.24242424242424243,
+      "profit_factor": 0.32,
+      "sharpe": -9.395550204025502,
+      "dsr": 0.00036601526210826405
+    },
+    {
+      "fold_id": 2,
+      "n_train": 662,
+      "n_test": 124,
+      "base_rate_test": 0.46774193548387094,
+      "n_predicted_positive": 59,
+      "win_rate_on_taken": 0.6779661016949152,
+      "profit_factor": 2.1052631578947367,
+      "sharpe": 5.99474569221766,
+      "dsr": 0.9313331308058361
+    },
+    {
+      "fold_id": 3,
+      "n_train": 786,
+      "n_test": 124,
+      "base_rate_test": 0.21774193548387097,
+      "n_predicted_positive": 54,
+      "win_rate_on_taken": 0.37037037037037035,
+      "profit_factor": 0.5882352941176471,
+      "sharpe": -4.221676091270842,
+      "dsr": 0.0017731560289526598
+    },
+    {
+      "fold_id": 4,
+      "n_train": 910,
+      "n_test": 126,
+      "base_rate_test": 0.24603174603174602,
+      "n_predicted_positive": 38,
+      "win_rate_on_taken": 0.6052631578947368,
+      "profit_factor": 1.5333333333333334,
+      "sharpe": 3.3733373733329644,
+      "dsr": 0.5441687794265265
+    }
+  ],
+  "overall": {
+    "n_predicted_positive": 214,
+    "win_rate_on_taken": 0.49065420560747663,
+    "win_rate_ci95": [
+      0.4244323102663862,
+      0.5572057239750074
+    ],
+    "profit_factor": 0.963302752293578,
+    "sharpe": -0.2960774165268435,
+    "dsr": 0.07193871801900782,
+    "confusion_matrix": [
+      [
+        359,
+        109
+      ],
+      [
+        49,
+        105
+      ]
+    ]
+  }
+}
