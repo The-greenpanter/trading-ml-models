@@ -22,7 +22,11 @@ def _confusion_matrix(y_true: np.ndarray, y_pred: np.ndarray) -> list[list[int]]
     fn = int(((y_true == 1) & (y_pred == 0)).sum())
     tp = int(((y_true == 1) & (y_pred == 1)).sum())
     return [[tn, fp], [fn, tp]]
-from src.features.engineering import build_features
+from src.features.engineering import (
+    apply_scalers,
+    build_features,
+    fit_scalers,
+)
 from src.models.xgboost_model import train_xgb, save_model
 from src.validation.walk_forward import walk_forward_splits
 from src.validation.metrics import summarise, win_rate
@@ -47,7 +51,7 @@ def run(csv_path: Path, out_dir: Path, threshold: float = 0.5, n_folds: int = 5)
     n_weekend = n_raw - n_clean
 
     fs = build_features(clean)
-    X = fs.X.values
+    X_df = fs.X
     y = make_target(clean)
 
     # --- walk-forward ---
@@ -57,8 +61,14 @@ def run(csv_path: Path, out_dir: Path, threshold: float = 0.5, n_folds: int = 5)
     all_y_prob: list[np.ndarray] = []
 
     for fold in walk_forward_splits(len(clean), n_folds=n_folds, min_train_frac=0.4):
-        X_tr, y_tr = X[fold.train_idx], y[fold.train_idx]
-        X_te, y_te = X[fold.test_idx], y[fold.test_idx]
+        X_tr_df = X_df.iloc[fold.train_idx]
+        X_te_df = X_df.iloc[fold.test_idx]
+        # fit global-stat scalers on the training fold only (no leakage)
+        scalers = fit_scalers(X_tr_df)
+        X_tr = apply_scalers(X_tr_df, scalers).values
+        X_te = apply_scalers(X_te_df, scalers).values
+        y_tr = y[fold.train_idx]
+        y_te = y[fold.test_idx]
         # carve a small validation tail off the train block for early stopping
         cut = int(len(X_tr) * 0.85)
         X_fit, y_fit = X_tr[:cut], y_tr[:cut]
@@ -94,10 +104,14 @@ def run(csv_path: Path, out_dir: Path, threshold: float = 0.5, n_folds: int = 5)
     cm = _confusion_matrix(y_true_cat, y_pred_cat)
 
     # --- final model on full temporal split (60/20/20) for export ---
+    # Fit scalers on the training portion only, then apply to val/test.
     split = temporal_split(clean)
-    Xtr = build_features(split.train).X.values
+    fs_tr = build_features(split.train)
+    fs_val = build_features(split.val)
+    final_scalers = fit_scalers(fs_tr.X)
+    Xtr = apply_scalers(fs_tr.X, final_scalers).values
     ytr = make_target(split.train)
-    Xv = build_features(split.val).X.values
+    Xv = apply_scalers(fs_val.X, final_scalers).values
     yv = make_target(split.val)
     final_clf = train_xgb(Xtr, ytr, Xv, yv)
     save_model(final_clf, out_dir / "model", fs.feature_names)
