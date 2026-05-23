@@ -1,0 +1,984 @@
+{
+  "csv": "data\\_alerts_snapshot.csv",
+  "n_rows_raw": 1253,
+  "n_rows_weekend_removed": 217,
+  "n_rows_clean": 1036,
+  "base_rate_clean": 0.2750965250965251,
+  "n_features": 59,
+  "primary_threshold": 0.5,
+  "secondary_threshold_default": 0.5,
+  "secondary_threshold_sweep": [
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75
+  ],
+  "n_outer_folds": 5,
+  "n_inner_folds": 3,
+  "fold_results": [
+    {
+      "fold_id": 0,
+      "n_train": 414,
+      "n_test": 124,
+      "n_secondary_train": 82,
+      "base_rate_test": 0.14516129032258066,
+      "top_features_used_by_logistic": [
+        "sym_AUDUSD",
+        "lag1_symbol_dir_result",
+        "sym_USDJPY",
+        "dir_LONG",
+        "sym_EURUSD"
+      ],
+      "primary_only": {
+        "n_taken": 35,
+        "win_rate": 0.4,
+        "profit_factor": 0.6666666666666666,
+        "sharpe": -3.1937438845342627,
+        "dsr": 0.011903081250272412
+      },
+      "logistic_secondary_t05": {
+        "n_taken": 27,
+        "win_rate": 0.37037037037037035,
+        "profit_factor": 0.5882352941176471,
+        "sharpe": -4.181659301019623,
+        "dsr": 0.00920715171504936
+      },
+      "xgboost_secondary_t05": {
+        "n_taken": 0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "sharpe": 0.0,
+        "dsr": 0.0
+      },
+      "sweep_logistic": {
+        "0.45": {
+          "n_taken": 27,
+          "win_rate": 0.37037037037037035,
+          "profit_factor": 0.5882352941176471,
+          "sharpe": -4.181659301019623,
+          "dsr": 0.00920715171504936
+        },
+        "0.50": {
+          "n_taken": 27,
+          "win_rate": 0.37037037037037035,
+          "profit_factor": 0.5882352941176471,
+          "sharpe": -4.181659301019623,
+          "dsr": 0.00920715171504936
+        },
+        "0.55": {
+          "n_taken": 27,
+          "win_rate": 0.37037037037037035,
+          "profit_factor": 0.5882352941176471,
+          "sharpe": -4.181659301019623,
+          "dsr": 0.00920715171504936
+        },
+        "0.60": {
+          "n_taken": 22,
+          "win_rate": 0.4090909090909091,
+          "profit_factor": 0.6923076923076923,
+          "sharpe": -2.867712716395459,
+          "dsr": 0.0265921965604324
+        },
+        "0.65": {
+          "n_taken": 15,
+          "win_rate": 0.4666666666666667,
+          "profit_factor": 0.875,
+          "sharpe": -1.02469507659596,
+          "dsr": 0.08251203813686975
+        },
+        "0.70": {
+          "n_taken": 7,
+          "win_rate": 0.5714285714285714,
+          "profit_factor": 1.3333333333333333,
+          "sharpe": 2.1213203435596424,
+          "dsr": 0.22198232227849835
+        },
+        "0.75": {
+          "n_taken": 1,
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        }
+      },
+      "sweep_xgboost": {
+        "0.45": {
+          "n_taken": 35,
+          "win_rate": 0.4,
+          "profit_factor": 0.6666666666666666,
+          "sharpe": -3.1937438845342627,
+          "dsr": 0.011903081250272412
+        },
+        "0.50": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.55": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.60": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.65": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.70": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.75": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        }
+      }
+    },
+    {
+      "fold_id": 1,
+      "n_train": 538,
+      "n_test": 124,
+      "n_secondary_train": 102,
+      "base_rate_test": 0.16129032258064516,
+      "top_features_used_by_logistic": [
+        "lag1_symbol_dir_result",
+        "sym_AUDUSD",
+        "dir_SHORT",
+        "vote_ema200",
+        "dir_LONG"
+      ],
+      "primary_only": {
+        "n_taken": 18,
+        "win_rate": 0.2222222222222222,
+        "profit_factor": 0.2857142857142857,
+        "sharpe": -10.307764064044152,
+        "dsr": 0.0030242570700167817
+      },
+      "logistic_secondary_t05": {
+        "n_taken": 11,
+        "win_rate": 0.2727272727272727,
+        "profit_factor": 0.375,
+        "sharpe": -7.723929758166559,
+        "dsr": 0.01368954063684367
+      },
+      "xgboost_secondary_t05": {
+        "n_taken": 4,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "sharpe": 0.0,
+        "dsr": 0.0
+      },
+      "sweep_logistic": {
+        "0.45": {
+          "n_taken": 11,
+          "win_rate": 0.2727272727272727,
+          "profit_factor": 0.375,
+          "sharpe": -7.723929758166559,
+          "dsr": 0.01368954063684367
+        },
+        "0.50": {
+          "n_taken": 11,
+          "win_rate": 0.2727272727272727,
+          "profit_factor": 0.375,
+          "sharpe": -7.723929758166559,
+          "dsr": 0.01368954063684367
+        },
+        "0.55": {
+          "n_taken": 11,
+          "win_rate": 0.2727272727272727,
+          "profit_factor": 0.375,
+          "sharpe": -7.723929758166559,
+          "dsr": 0.01368954063684367
+        },
+        "0.60": {
+          "n_taken": 8,
+          "win_rate": 0.375,
+          "profit_factor": 0.6,
+          "sharpe": -3.8340579025361627,
+          "dsr": 0.047293937199578286
+        },
+        "0.65": {
+          "n_taken": 5,
+          "win_rate": 0.6,
+          "profit_factor": 1.5,
+          "sharpe": 2.8982753492378874,
+          "dsr": 0.24691340846177356
+        },
+        "0.70": {
+          "n_taken": 3,
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.75": {
+          "n_taken": 3,
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        }
+      },
+      "sweep_xgboost": {
+        "0.45": {
+          "n_taken": 12,
+          "win_rate": 0.16666666666666666,
+          "profit_factor": 0.2,
+          "sharpe": -13.594116374373144,
+          "dsr": 0.008744550607613366
+        },
+        "0.50": {
+          "n_taken": 4,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.55": {
+          "n_taken": 4,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.60": {
+          "n_taken": 1,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.65": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.70": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.75": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        }
+      }
+    },
+    {
+      "fold_id": 2,
+      "n_train": 662,
+      "n_test": 124,
+      "n_secondary_train": 102,
+      "base_rate_test": 0.46774193548387094,
+      "top_features_used_by_logistic": [
+        "sym_AUDUSD",
+        "lag1_symbol_dir_result",
+        "sym_USDJPY",
+        "sym_USDCAD",
+        "lag1_symbol_result"
+      ],
+      "primary_only": {
+        "n_taken": 59,
+        "win_rate": 0.711864406779661,
+        "profit_factor": 2.4705882352941178,
+        "sharpe": 7.362904515968288,
+        "dsr": 0.9738329162374534
+      },
+      "logistic_secondary_t05": {
+        "n_taken": 42,
+        "win_rate": 0.7380952380952381,
+        "profit_factor": 2.8181818181818183,
+        "sharpe": 8.493571831882221,
+        "dsr": 0.960584113144815
+      },
+      "xgboost_secondary_t05": {
+        "n_taken": 38,
+        "win_rate": 0.6842105263157895,
+        "profit_factor": 2.1666666666666665,
+        "sharpe": 6.207690802642684,
+        "dsr": 0.8523684632067956
+      },
+      "sweep_logistic": {
+        "0.45": {
+          "n_taken": 51,
+          "win_rate": 0.7254901960784313,
+          "profit_factor": 2.642857142857143,
+          "sharpe": 7.942059657653256,
+          "dsr": 0.970833321679843
+        },
+        "0.50": {
+          "n_taken": 42,
+          "win_rate": 0.7380952380952381,
+          "profit_factor": 2.8181818181818183,
+          "sharpe": 8.493571831882221,
+          "dsr": 0.960584113144815
+        },
+        "0.55": {
+          "n_taken": 20,
+          "win_rate": 0.95,
+          "profit_factor": 19.0,
+          "sharpe": 31.946830828737934,
+          "dsr": 0.9391380080139393
+        },
+        "0.60": {
+          "n_taken": 20,
+          "win_rate": 0.95,
+          "profit_factor": 19.0,
+          "sharpe": 31.946830828737934,
+          "dsr": 0.9391380080139393
+        },
+        "0.65": {
+          "n_taken": 20,
+          "win_rate": 0.95,
+          "profit_factor": 19.0,
+          "sharpe": 31.946830828737934,
+          "dsr": 0.9391380080139393
+        },
+        "0.70": {
+          "n_taken": 20,
+          "win_rate": 0.95,
+          "profit_factor": 19.0,
+          "sharpe": 31.946830828737934,
+          "dsr": 0.9391380080139393
+        },
+        "0.75": {
+          "n_taken": 20,
+          "win_rate": 0.95,
+          "profit_factor": 19.0,
+          "sharpe": 31.946830828737934,
+          "dsr": 0.9391380080139393
+        }
+      },
+      "sweep_xgboost": {
+        "0.45": {
+          "n_taken": 45,
+          "win_rate": 0.6888888888888889,
+          "profit_factor": 2.2142857142857144,
+          "sharpe": 6.404635418094435,
+          "dsr": 0.9018195167188297
+        },
+        "0.50": {
+          "n_taken": 38,
+          "win_rate": 0.6842105263157895,
+          "profit_factor": 2.1666666666666665,
+          "sharpe": 6.207690802642684,
+          "dsr": 0.8523684632067956
+        },
+        "0.55": {
+          "n_taken": 31,
+          "win_rate": 0.7419354838709677,
+          "profit_factor": 2.875,
+          "sharpe": 8.634404745061628,
+          "dsr": 0.9199627593444574
+        },
+        "0.60": {
+          "n_taken": 13,
+          "win_rate": 0.6923076923076923,
+          "profit_factor": 2.25,
+          "sharpe": 6.354889093022427,
+          "dsr": 0.5832525570370426
+        },
+        "0.65": {
+          "n_taken": 5,
+          "win_rate": 0.4,
+          "profit_factor": 0.6666666666666666,
+          "sharpe": -2.8982753492378874,
+          "dsr": 0.08127940864420208
+        },
+        "0.70": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.75": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        }
+      }
+    },
+    {
+      "fold_id": 3,
+      "n_train": 786,
+      "n_test": 124,
+      "n_secondary_train": 147,
+      "base_rate_test": 0.21774193548387097,
+      "top_features_used_by_logistic": [
+        "lag1_symbol_dir_result",
+        "sym_AUDUSD",
+        "vote_ema200",
+        "sym_GBPUSD",
+        "lag1_symbol_result"
+      ],
+      "primary_only": {
+        "n_taken": 39,
+        "win_rate": 0.48717948717948717,
+        "profit_factor": 0.95,
+        "sharpe": -0.4019184762342502,
+        "dsr": 0.0913558809578272
+      },
+      "logistic_secondary_t05": {
+        "n_taken": 12,
+        "win_rate": 0.75,
+        "profit_factor": 3.0,
+        "sharpe": 8.774964387392123,
+        "dsr": 0.7057606055535511
+      },
+      "xgboost_secondary_t05": {
+        "n_taken": 11,
+        "win_rate": 0.5454545454545454,
+        "profit_factor": 1.2,
+        "sharpe": 1.3816985594155153,
+        "dsr": 0.19597273150592082
+      },
+      "sweep_logistic": {
+        "0.45": {
+          "n_taken": 12,
+          "win_rate": 0.75,
+          "profit_factor": 3.0,
+          "sharpe": 8.774964387392123,
+          "dsr": 0.7057606055535511
+        },
+        "0.50": {
+          "n_taken": 12,
+          "win_rate": 0.75,
+          "profit_factor": 3.0,
+          "sharpe": 8.774964387392123,
+          "dsr": 0.7057606055535511
+        },
+        "0.55": {
+          "n_taken": 12,
+          "win_rate": 0.75,
+          "profit_factor": 3.0,
+          "sharpe": 8.774964387392123,
+          "dsr": 0.7057606055535511
+        },
+        "0.60": {
+          "n_taken": 11,
+          "win_rate": 0.8181818181818182,
+          "profit_factor": 4.5,
+          "sharpe": 12.486356190221827,
+          "dsr": 0.8060257597369833
+        },
+        "0.65": {
+          "n_taken": 9,
+          "win_rate": 0.7777777777777778,
+          "profit_factor": 3.5,
+          "sharpe": 10.0,
+          "dsr": 0.6867451581623516
+        },
+        "0.70": {
+          "n_taken": 5,
+          "win_rate": 0.6,
+          "profit_factor": 1.5,
+          "sharpe": 2.8982753492378874,
+          "dsr": 0.24691340846177356
+        },
+        "0.75": {
+          "n_taken": 3,
+          "win_rate": 0.6666666666666666,
+          "profit_factor": 2.0,
+          "sharpe": 4.582575694955839,
+          "dsr": 0.0
+        }
+      },
+      "sweep_xgboost": {
+        "0.45": {
+          "n_taken": 17,
+          "win_rate": 0.5294117647058824,
+          "profit_factor": 1.125,
+          "sharpe": 0.9074852129730301,
+          "dsr": 0.177348402661072
+        },
+        "0.50": {
+          "n_taken": 11,
+          "win_rate": 0.5454545454545454,
+          "profit_factor": 1.2,
+          "sharpe": 1.3816985594155153,
+          "dsr": 0.19597273150592082
+        },
+        "0.55": {
+          "n_taken": 7,
+          "win_rate": 0.7142857142857143,
+          "profit_factor": 2.5,
+          "sharpe": 6.971370023173349,
+          "dsr": 0.49024114806287483
+        },
+        "0.60": {
+          "n_taken": 3,
+          "win_rate": 0.3333333333333333,
+          "profit_factor": 0.5,
+          "sharpe": -4.582575694955839,
+          "dsr": 0.0
+        },
+        "0.65": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.70": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.75": {
+          "n_taken": 0,
+          "win_rate": 0.0,
+          "profit_factor": 0.0,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        }
+      }
+    },
+    {
+      "fold_id": 4,
+      "n_train": 910,
+      "n_test": 126,
+      "n_secondary_train": 167,
+      "base_rate_test": 0.24603174603174602,
+      "top_features_used_by_logistic": [
+        "lag1_symbol_dir_result",
+        "sym_USDJPY",
+        "lag1_symbol_result",
+        "sym_AUDUSD",
+        "vote_ema200"
+      ],
+      "primary_only": {
+        "n_taken": 31,
+        "win_rate": 0.6451612903225806,
+        "profit_factor": 1.8181818181818181,
+        "sharpe": 4.737849098087269,
+        "dsr": 0.6646166607366824
+      },
+      "logistic_secondary_t05": {
+        "n_taken": 26,
+        "win_rate": 0.7307692307692307,
+        "profit_factor": 2.7142857142857144,
+        "sharpe": 8.098582871985256,
+        "dsr": 0.8655778129411188
+      },
+      "xgboost_secondary_t05": {
+        "n_taken": 22,
+        "win_rate": 0.8181818181818182,
+        "profit_factor": 4.5,
+        "sharpe": 12.794707712743794,
+        "dsr": 0.9405563650514434
+      },
+      "sweep_logistic": {
+        "0.45": {
+          "n_taken": 26,
+          "win_rate": 0.7307692307692307,
+          "profit_factor": 2.7142857142857144,
+          "sharpe": 8.098582871985256,
+          "dsr": 0.8655778129411188
+        },
+        "0.50": {
+          "n_taken": 26,
+          "win_rate": 0.7307692307692307,
+          "profit_factor": 2.7142857142857144,
+          "sharpe": 8.098582871985256,
+          "dsr": 0.8655778129411188
+        },
+        "0.55": {
+          "n_taken": 15,
+          "win_rate": 0.9333333333333333,
+          "profit_factor": 14.0,
+          "sharpe": 26.642071991494955,
+          "dsr": 0.918011614527167
+        },
+        "0.60": {
+          "n_taken": 15,
+          "win_rate": 0.9333333333333333,
+          "profit_factor": 14.0,
+          "sharpe": 26.642071991494955,
+          "dsr": 0.918011614527167
+        },
+        "0.65": {
+          "n_taken": 13,
+          "win_rate": 0.9230769230769231,
+          "profit_factor": 12.0,
+          "sharpe": 24.215379728276314,
+          "dsr": 0.9023900018800468
+        },
+        "0.70": {
+          "n_taken": 6,
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.75": {
+          "n_taken": 6,
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        }
+      },
+      "sweep_xgboost": {
+        "0.45": {
+          "n_taken": 28,
+          "win_rate": 0.7142857142857143,
+          "profit_factor": 2.5,
+          "sharpe": 7.394254526319742,
+          "dsr": 0.8494007923990354
+        },
+        "0.50": {
+          "n_taken": 22,
+          "win_rate": 0.8181818181818182,
+          "profit_factor": 4.5,
+          "sharpe": 12.794707712743794,
+          "dsr": 0.9405563650514434
+        },
+        "0.55": {
+          "n_taken": 20,
+          "win_rate": 0.8,
+          "profit_factor": 4.0,
+          "sharpe": 11.604417262404862,
+          "dsr": 0.9102542081992935
+        },
+        "0.60": {
+          "n_taken": 15,
+          "win_rate": 0.7333333333333333,
+          "profit_factor": 2.75,
+          "sharpe": 8.092083673678749,
+          "dsr": 0.728602154294925
+        },
+        "0.65": {
+          "n_taken": 10,
+          "win_rate": 0.7,
+          "profit_factor": 2.3333333333333335,
+          "sharpe": 6.572670690061995,
+          "dsr": 0.5382884710573362
+        },
+        "0.70": {
+          "n_taken": 3,
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        },
+        "0.75": {
+          "n_taken": 2,
+          "win_rate": 1.0,
+          "profit_factor": Infinity,
+          "sharpe": 0.0,
+          "dsr": 0.0
+        }
+      }
+    }
+  ],
+  "overall": {
+    "primary_only": {
+      "n_taken": 182,
+      "win_rate": 0.5439560439560439,
+      "win_rate_ci95": [
+        0.47143227697677226,
+        0.6146625478633065
+      ],
+      "precision": 0.5439560439560439,
+      "recall": 0.6428571428571429,
+      "f1": 0.5892857142857143,
+      "profit_factor": 1.1927710843373494,
+      "sharpe": 1.3971312519259833,
+      "dsr": 0.49792302642590086,
+      "confusion_matrix": [
+        [
+          385,
+          83
+        ],
+        [
+          55,
+          99
+        ]
+      ]
+    },
+    "logistic_secondary_t05": {
+      "n_taken": 118,
+      "win_rate": 0.6101694915254238,
+      "win_rate_ci95": [
+        0.5200255656951949,
+        0.6933662479382441
+      ],
+      "precision": 0.6101694915254238,
+      "recall": 0.4675324675324675,
+      "f1": 0.5294117647058822,
+      "profit_factor": 1.565217391304348,
+      "sharpe": 3.5706755180387915,
+      "dsr": 0.882205327593877,
+      "confusion_matrix": [
+        [
+          422,
+          46
+        ],
+        [
+          82,
+          72
+        ]
+      ]
+    },
+    "xgboost_secondary_t05": {
+      "n_taken": 75,
+      "win_rate": 0.6666666666666666,
+      "win_rate_ci95": [
+        0.5541721417516369,
+        0.7629193429467963
+      ],
+      "precision": 0.6666666666666666,
+      "recall": 0.3246753246753247,
+      "f1": 0.4366812227074236,
+      "profit_factor": 2.0,
+      "sharpe": 5.574943945906542,
+      "dsr": 0.9492467770148041,
+      "confusion_matrix": [
+        [
+          443,
+          25
+        ],
+        [
+          104,
+          50
+        ]
+      ]
+    }
+  },
+  "threshold_sweep_overall": {
+    "logistic": {
+      "0.45": {
+        "n_taken": 127,
+        "win_rate": 0.6141732283464567,
+        "win_rate_ci95": [
+          0.5273424130852696,
+          0.69429963348096
+        ],
+        "precision": 0.6141732283464567,
+        "recall": 0.5064935064935064,
+        "f1": 0.5551601423487544,
+        "profit_factor": 1.5918367346938775,
+        "sharpe": 3.70856882607492,
+        "dsr": 0.9132271141794602
+      },
+      "0.50": {
+        "n_taken": 118,
+        "win_rate": 0.6101694915254238,
+        "win_rate_ci95": [
+          0.5200255656951949,
+          0.6933662479382441
+        ],
+        "precision": 0.6101694915254238,
+        "recall": 0.4675324675324675,
+        "f1": 0.5294117647058822,
+        "profit_factor": 1.565217391304348,
+        "sharpe": 3.5706755180387915,
+        "dsr": 0.882205327593877
+      },
+      "0.55": {
+        "n_taken": 85,
+        "win_rate": 0.6470588235294118,
+        "win_rate_ci95": [
+          0.5411230239742643,
+          0.7402766806686057
+        ],
+        "precision": 0.6470588235294118,
+        "recall": 0.35714285714285715,
+        "f1": 0.46025104602510464,
+        "profit_factor": 1.8333333333333333,
+        "sharpe": 4.856221545660243,
+        "dsr": 0.9307600072472967
+      },
+      "0.60": {
+        "n_taken": 76,
+        "win_rate": 0.7105263157894737,
+        "win_rate_ci95": [
+          0.6004023269144307,
+          0.8003912443566861
+        ],
+        "precision": 0.7105263157894737,
+        "recall": 0.35064935064935066,
+        "f1": 0.46956521739130436,
+        "profit_factor": 2.4545454545454546,
+        "sharpe": 7.320417798624028,
+        "dsr": 0.9898920063690848
+      },
+      "0.65": {
+        "n_taken": 62,
+        "win_rate": 0.7741935483870968,
+        "win_rate_ci95": [
+          0.6559414245921728,
+          0.8604494286070205
+        ],
+        "precision": 0.7741935483870968,
+        "recall": 0.3116883116883117,
+        "f1": 0.4444444444444445,
+        "profit_factor": 3.4285714285714284,
+        "sharpe": 10.326035838066431,
+        "dsr": 0.9970405564098196
+      },
+      "0.70": {
+        "n_taken": 41,
+        "win_rate": 0.8536585365853658,
+        "win_rate_ci95": [
+          0.7155624473141073,
+          0.9311584547054459
+        ],
+        "precision": 0.8536585365853658,
+        "recall": 0.22727272727272727,
+        "f1": 0.358974358974359,
+        "profit_factor": 5.833333333333333,
+        "sharpe": 15.68905164321332,
+        "dsr": 0.9952531742035479
+      },
+      "0.75": {
+        "n_taken": 33,
+        "win_rate": 0.9393939393939394,
+        "win_rate_ci95": [
+          0.8039341828220181,
+          0.9832194695709291
+        ],
+        "precision": 0.9393939393939394,
+        "recall": 0.2012987012987013,
+        "f1": 0.3315508021390375,
+        "profit_factor": 15.5,
+        "sharpe": 28.78660490055887,
+        "dsr": 0.9843087040893624
+      }
+    },
+    "xgboost": {
+      "0.45": {
+        "n_taken": 137,
+        "win_rate": 0.5547445255474452,
+        "win_rate_ci95": [
+          0.4711569003312963,
+          0.6353457238933646
+        ],
+        "precision": 0.5547445255474452,
+        "recall": 0.4935064935064935,
+        "f1": 0.5223367697594502,
+        "profit_factor": 1.2459016393442623,
+        "sharpe": 1.7422039367134785,
+        "dsr": 0.5360798454577048
+      },
+      "0.50": {
+        "n_taken": 75,
+        "win_rate": 0.6666666666666666,
+        "win_rate_ci95": [
+          0.5541721417516369,
+          0.7629193429467963
+        ],
+        "precision": 0.6666666666666666,
+        "recall": 0.3246753246753247,
+        "f1": 0.4366812227074236,
+        "profit_factor": 2.0,
+        "sharpe": 5.574943945906542,
+        "dsr": 0.9492467770148041
+      },
+      "0.55": {
+        "n_taken": 62,
+        "win_rate": 0.7096774193548387,
+        "win_rate_ci95": [
+          0.5871211868886292,
+          0.8077659361460481
+        ],
+        "precision": 0.7096774193548387,
+        "recall": 0.2857142857142857,
+        "f1": 0.40740740740740744,
+        "profit_factor": 2.4444444444444446,
+        "sharpe": 7.273611566473791,
+        "dsr": 0.976495412969696
+      },
+      "0.60": {
+        "n_taken": 32,
+        "win_rate": 0.65625,
+        "win_rate_ci95": [
+          0.4831077350878594,
+          0.7958976664567146
+        ],
+        "precision": 0.65625,
+        "recall": 0.13636363636363635,
+        "f1": 0.2258064516129032,
+        "profit_factor": 1.9090909090909092,
+        "sharpe": 5.140083126317564,
+        "dsr": 0.716104380660087
+      },
+      "0.65": {
+        "n_taken": 15,
+        "win_rate": 0.6,
+        "win_rate_ci95": [
+          0.357464427565077,
+          0.8017577191740534
+        ],
+        "precision": 0.6,
+        "recall": 0.05844155844155844,
+        "f1": 0.10650887573964497,
+        "profit_factor": 1.5,
+        "sharpe": 3.130495168499706,
+        "dsr": 0.3445797881281779
+      },
+      "0.70": {
+        "n_taken": 3,
+        "win_rate": 1.0,
+        "win_rate_ci95": [
+          0.43849391955098227,
+          1.0
+        ],
+        "precision": 1.0,
+        "recall": 0.01948051948051948,
+        "f1": 0.03821656050955414,
+        "profit_factor": Infinity,
+        "sharpe": 0.0,
+        "dsr": 0.0
+      },
+      "0.75": {
+        "n_taken": 2,
+        "win_rate": 1.0,
+        "win_rate_ci95": [
+          0.34237195288961925,
+          1.0
+        ],
+        "precision": 1.0,
+        "recall": 0.012987012987012988,
+        "f1": 0.025641025641025647,
+        "profit_factor": Infinity,
+        "sharpe": 0.0,
+        "dsr": 0.0
+      }
+    }
+  }
+}
