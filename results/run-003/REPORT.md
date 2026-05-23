@@ -143,7 +143,7 @@ trade-off without re-running.
 
 ## Verdict
 
-**Target hit on the aggregate.** At the pre-registered secondary threshold 0.50, the best secondary (logit WR=0.610 on n=118, xgb WR=0.667 on n=75) reaches WR >= 0.60 over the 5-fold walk-forward. **BUT** read the regime diagnostic below before declaring victory: if most of the edge comes from the high-base-rate folds, then live deployment will only behave like the backtest while the underlying WIN regime persists. Recommended next step (assuming the regime diagnostic does not invalidate the headline): shadow-mode paper-trade on the VPS for 2 weeks alongside run-002, then compare live WR / drawdown.
+**Target hit on the point estimate.** At the pre-registered secondary threshold 0.50, both secondaries' point WR estimates clear 0.60: logit 0.610 on n=118, xgb 0.667 on n=75. However the Wilson 95% CI lower bounds (logit 0.520, xgb 0.554) do not reach 0.60 -- so "WR >= 0.60 with 95% confidence" is NOT yet supported; what IS supported is "point WR >= 0.60 and the CI excludes 0.50". Also read the regime diagnostic below before declaring victory: if most of the edge comes from the high-base-rate folds, live deployment will only behave like the backtest while the underlying WIN regime persists. Recommended next step: shadow-mode paper-trade on the VPS for 2 weeks alongside run-002, then compare live WR / drawdown.
 
 ## Diagnostic: is the secondary just doing regime selection?
 

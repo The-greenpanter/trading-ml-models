@@ -556,17 +556,20 @@ def _write_report(out_dir: Path, summary: dict, feature_names: list[str]) -> Non
     target_hit = best_wr >= 0.60
     if target_hit:
         target_60 = (
-            "**Target hit on the aggregate.** At the pre-registered secondary "
-            f"threshold 0.50, the best secondary (logit WR={l['win_rate']:.3f} "
-            f"on n={l['n_taken']}, xgb WR={x['win_rate']:.3f} on n={x['n_taken']}) "
-            "reaches WR >= 0.60 over the 5-fold walk-forward. "
-            "**BUT** read the regime diagnostic below before declaring victory: "
-            "if most of the edge comes from the high-base-rate folds, then live "
-            "deployment will only behave like the backtest while the underlying "
-            "WIN regime persists. Recommended next step (assuming the regime "
-            "diagnostic does not invalidate the headline): shadow-mode paper-"
-            "trade on the VPS for 2 weeks alongside run-002, then compare "
-            "live WR / drawdown."
+            "**Target hit on the point estimate.** At the pre-registered "
+            f"secondary threshold 0.50, both secondaries' point WR estimates "
+            f"clear 0.60: logit {l['win_rate']:.3f} on n={l['n_taken']}, xgb "
+            f"{x['win_rate']:.3f} on n={x['n_taken']}. "
+            "However the Wilson 95% CI lower bounds (logit "
+            f"{l['win_rate_ci95'][0]:.3f}, xgb {x['win_rate_ci95'][0]:.3f}) "
+            "do not reach 0.60 -- so \"WR >= 0.60 with 95% confidence\" is "
+            "NOT yet supported; what IS supported is \"point WR >= 0.60 and "
+            "the CI excludes 0.50\". Also read the regime diagnostic below "
+            "before declaring victory: if most of the edge comes from the "
+            "high-base-rate folds, live deployment will only behave like the "
+            "backtest while the underlying WIN regime persists. Recommended "
+            "next step: shadow-mode paper-trade on the VPS for 2 weeks "
+            "alongside run-002, then compare live WR / drawdown."
         )
     else:
         target_60 = (
